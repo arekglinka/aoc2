@@ -1,0 +1,11 @@
+{
+  "name": "aoc-2019-purescript",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "spago build",
+    "bundle": "spago bundle --module Main --platform browser --outfile output/app.js",
+    "serve": "python3 -m http.server 8080"
+  },
+  "license": "MIT"
+}

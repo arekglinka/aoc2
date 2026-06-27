@@ -1,0 +1,26 @@
+[project]
+name = "aoc"
+version = "0.1.0"
+description = "Advent of Code solutions — Python with Rust/C++ extensions and PureScript SPA"
+requires-python = ">=3.13"
+dependencies = [
+    "aoc-cpp-y2019",
+    "aoc-rust-y2019",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aoc"]
+
+[tool.uv.sources]
+aoc-cpp-y2019 = { workspace = true }
+aoc-rust-y2019 = { workspace = true }
+
+[tool.uv.workspace]
+members = ["ext/aoc_rust_y2019", "ext/aoc_cpp_y2019"]
+
+[dependency-groups]
+dev = []

@@ -1,0 +1,13 @@
+[project]
+name = "aoc-rust-y2019"
+version = "0.1.0"
+description = "Rust extension: AoC 2019 solutions"
+requires-python = ">=3.13"
+
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "aoc_rust_y2019"

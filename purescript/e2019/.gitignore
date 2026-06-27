@@ -1,0 +1,5 @@
+output/
+.psci_modules/
+.spago/
+node_modules/
+*.lock

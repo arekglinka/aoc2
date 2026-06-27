@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.uv/
+
+# Build artifacts
+build/
+dist/
+*.so
+*.pyd
+
+# uv lockfile (uncomment to ignore — keeping tracked for reproducibility)
+# uv.lock
+
+# Rust / Cargo
+target/
+Cargo.lock
+
+# C++ / CMake
+cmake-build-*/
+_CMakeCache/
+CMakeCache.txt
+CMakeFiles/
+
+# PureScript / Spago / Node
+output/
+.psci_modules/
+.spago/
+node_modules/
+generated-docs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

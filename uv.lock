@@ -1,0 +1,38 @@
+version = 1
+revision = 3
+requires-python = ">=3.13"
+
+[manifest]
+members = [
+    "aoc",
+    "aoc-cpp-y2019",
+    "aoc-rust-y2019",
+]
+
+[[package]]
+name = "aoc"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "aoc-cpp-y2019" },
+    { name = "aoc-rust-y2019" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "aoc-cpp-y2019", editable = "ext/aoc_cpp_y2019" },
+    { name = "aoc-rust-y2019", editable = "ext/aoc_rust_y2019" },
+]
+
+[package.metadata.requires-dev]
+dev = []
+
+[[package]]
+name = "aoc-cpp-y2019"
+version = "0.1.0"
+source = { editable = "ext/aoc_cpp_y2019" }
+
+[[package]]
+name = "aoc-rust-y2019"
+version = "0.1.0"
+source = { editable = "ext/aoc_rust_y2019" }
