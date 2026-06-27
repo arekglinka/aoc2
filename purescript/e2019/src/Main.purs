@@ -13,7 +13,7 @@ import Fetch (fetchText, setBodyHtml)
 
 main :: Effect Unit
 main = launchAff_ do
-  content <- fetchText "../../data/e2019/day1.txt"
+  content <- fetchText "../../../data/e2019/day1.txt"
   let masses = parseMasses content
       part1 = sum (map fuelFromMass masses)
       part2 = sum (map totalFuel masses)

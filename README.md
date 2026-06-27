@@ -56,13 +56,15 @@ If any implementation disagrees, the runner raises `AssertionError` before print
 
 ### PureScript SPA
 
+The SPA needs to fetch puzzle input from `data/e2019/day1.txt` at the repo root, so the HTTP server must serve from the **repo root** (not from `purescript/e2019/`):
+
 ```bash
-cd purescript/e2019
+# From repo root
 python3 -m http.server 8080
-# open http://localhost:8080/html/index.html
+# open http://localhost:8080/purescript/e2019/html/index.html
 ```
 
-The SPA fetches `../../data/e2019/day1.txt` from the dev server and renders Part 1 / Part 2 into the page.
+The SPA fetches `../../../data/e2019/day1.txt` (3 levels up from `html/index.html`) and renders Part 1 / Part 2 into the page.
 
 ## Adding a new day
 
