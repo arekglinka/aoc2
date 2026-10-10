@@ -5,9 +5,9 @@ description = "C++ extension: AoC 2019 solutions"
 requires-python = ">=3.13"
 
 [build-system]
-requires = ["scikit-build-core>=0.10.7", "pybind11>=2.13.6"]
+requires = ["scikit-build-core>=0.10.7", "pybind11>=3.1"]
 build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
-cmake.minimum-version = "3.21"
-build-dir = "build/{wheel_tag}"
+cmake.version = ">=3.30"
+build-dir = "build/Release"
