@@ -1,0 +1,31 @@
+{
+  "name": "aoc-cpp26-dev",
+  "image": "ghcr.io/arekglinka/lambda_cpp26-dev:latest",
+  "shutdownAction": "none",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "vadimcn.vscode-lldb"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/var/lang/bin/python3",
+        "clangd.path": "/var/lang/bin/clangd",
+        "clangd.arguments": [
+          "--compile-commands-dir=${workspaceFolder}/ext/aoc_cpp_y2019/build/Release",
+          "--query-driver=/opt/gcc16/bin/g++",
+          "-j=4"
+        ],
+        "C_Cpp.default.compilerPath": "/opt/gcc16/bin/g++",
+        "C_Cpp.default.cppStandard": "c++26",
+        "cmake.configureOnOpen": false
+      }
+    }
+  },
+  "containerEnv": {
+    "LD_LIBRARY_PATH": "/opt/gcc16/lib64"
+  },
+  "remoteUser": "root"
+}

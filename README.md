@@ -73,6 +73,32 @@ The SPA fetches `../../../data/e2019/day1.txt` (3 levels up from `html/index.htm
 3. If you want native acceleration, add `day{N}_part1` / `day{N}_part2` to both extensions and re-run `uv sync`.
 4. Mirror the algorithm in `purescript/e{year}/src/Day{N}.purs` if you want a browser SPA build.
 
+## Devcontainer (lambda_cpp26)
+
+Open the repo in the lambda_cpp26 devcontainer (GCC 16, C++26, clangd, Python 3.14):
+
+```bash
+podman run --rm -it --entrypoint /bin/bash -v "$(pwd)":/work ghcr.io/arekglinka/lambda_cpp26-dev:latest
+```
+
+The image has **no Rust toolchain** — build the Rust extension on the host (abi3 wheel, forward-compatible):
+
+```bash
+uv build --wheel ext/aoc_rust_y2019 -o dist/wheels
+```
+
+Inside the container, install in THIS order (uv workspace sources are invisible to pip):
+
+```bash
+python3 -m venv /tmp/v
+/tmp/v/bin/pip install dist/wheels/aoc_rust_y2019-*.whl   # from the host build
+/tmp/v/bin/pip install ext/aoc_cpp_y2019                   # builds with C++26 (GCC 16)
+/tmp/v/bin/pip install --no-deps -e .                      # root package; exts must exist first
+/tmp/v/bin/python -m aoc.y2019.day1 --test && /tmp/v/bin/python -m aoc.y2019.day1
+```
+
+Python 3.14 (`/var/lang/bin/python3`), GCC 16.2 (`/opt/gcc16/bin/g++`). The runner asserts Python == Rust == C++.
+
 ## Toolchain versions this project was built against
 
 - Python 3.14.0 (development; 3.13+ supported via abi3)
