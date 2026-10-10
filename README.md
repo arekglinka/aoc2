@@ -20,12 +20,12 @@ aoc/
 │   ├── src/Main.purs            # Day 1 solver rendered to <body>
 │   └── html/index.html          # SPA host page
 ├── pyproject.toml               # uv workspace root
-└── .python-version              # 3.13 (PyO3 0.23 ceiling)
+└── .python-version              # 3.14 (PyO3 0.27 + abi3-py313)
 ```
 
 ## Setup
 
-Requires: Python 3.13, Rust (cargo), GCC 16+, Node (for PureScript tooling).
+Requires: Python 3.14 for development (3.13+ supported — the Rust extension ships as a cp313-abi3 wheel), Rust (cargo), GCC 16+, Node (for PureScript tooling).
 
 ```bash
 uv sync                          # builds Rust + C++ extensions, installs aoc
@@ -75,7 +75,8 @@ The SPA fetches `../../../data/e2019/day1.txt` (3 levels up from `html/index.htm
 
 ## Toolchain versions this project was built against
 
-- Python 3.13.12
+- Python 3.14.0 (development; 3.13+ supported via abi3)
+- PyO3 0.27 + abi3-py313
 - uv 0.11.6
 - rustc 1.93.1 / cargo 1.93.1
 - GCC 16.1.0
